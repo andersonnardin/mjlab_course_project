@@ -1,0 +1,54 @@
+# Python cache / compiled files
+__pycache__/
+*.py[cod]
+*.so
+
+# Build / packaging
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg
+*.pch
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# uv caches / local python installs
+.python-version
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.html_checkpoints/
+
+# Logs
+#logs/
+*.log
+wandb/
+MUJOCO_LOG.TXT
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data / generated artifacts
+#artifacts/
+#*.npz
+#*.npy
+motion.mp4
+
+# Optional: local secrets / env files
+.env
+.env.*
