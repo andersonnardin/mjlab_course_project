@@ -1,0 +1,58 @@
+<mujoco model="decorative_sphere">
+  <asset>
+    <mesh
+      name="decorative_sphere_visual_mesh"
+      file="assets/decorative_sphere/decorative_sphere.obj"
+      scale="0.28 0.28 0.28"/>
+
+    <!-- Base color -->
+    <texture
+      name="decorative_sphere_albedo"
+      type="2d"
+      file="assets/decorative_sphere/Hex_Sphere_albedo.png"
+      nchannel="3"/>
+
+    <!-- Normal map -->
+    <texture
+      name="decorative_sphere_normal"
+      type="2d"
+      file="assets/decorative_sphere/Hex_Sphere_normal.png"
+      nchannel="3"/>
+
+    <material
+      name="decorative_sphere_mat"
+      texuniform="false"
+      reflectance="0.0"
+      shininess="0.1"
+      specular="0.1">
+
+      <layer texture="decorative_sphere_albedo" role="rgb"/>
+      <layer texture="decorative_sphere_normal" role="normal"/>
+    </material>
+  </asset>
+
+  <worldbody>
+    <body name="decorative_sphere_body" pos="0 0 0">
+      <freejoint/>
+
+      <geom
+        name="decorative_sphere_collision_geom"
+        type="sphere"
+        size="0.3"
+        density="300"
+        contype="1"
+        conaffinity="1"
+        group="0"
+        rgba="1 0 0 0.2"/>
+
+      <geom
+        name="decorative_sphere_visual_geom"
+        type="mesh"
+        mesh="decorative_sphere_visual_mesh"
+        material="decorative_sphere_mat"
+        contype="0"
+        conaffinity="0"
+        group="1"/>
+    </body>
+  </worldbody>
+</mujoco>

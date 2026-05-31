@@ -1,0 +1,47 @@
+<mujoco model="brutalist_room">
+  <asset>
+    <mesh
+      name="brutalist_room_visual_mesh"
+      file="assets/brutalist_room/brutalist_room.obj"
+      scale="2 2 2"/>
+
+    <texture
+      name="brutalist_text"
+      type="2d"
+      file="assets/brutalist_room/Concrete_1_B.png"/>
+
+    <material
+      name="brutalist_mat"
+      texture="brutalist_text"
+      texuniform="false"
+      reflectance="0.0"
+      shininess="0.0"
+      specular="0.0"/>
+  </asset>
+
+  <worldbody>
+    <body name="brutalist_room_body" pos="0 0 0">
+      <!-- Visual mesh -->
+      <geom
+        name="brutalist_room_visual_geom"
+        type="mesh"
+        mesh="brutalist_room_visual_mesh"
+        material="brutalist_mat"
+        quat="0.7071 0.7071 0 0"
+        contype="0"
+        conaffinity="0"
+        group="1"/>
+
+      <!-- Collision plane (RAISED 0.1m) -->
+      <geom
+        name="brutalist_room_collision_plane"
+        type="plane"
+        pos="0 0 0.006"
+        size="0 0 0.1"
+        contype="1"
+        conaffinity="1"
+        group="0"
+        rgba="0.3 0.8 0.3 0.2"/>
+    </body>
+  </worldbody>
+</mujoco>

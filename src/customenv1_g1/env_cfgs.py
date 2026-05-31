@@ -1,23 +1,25 @@
-from mjlab.tasks.velocity.config.g1.env_cfgs import unitree_g1_rough_env_cfg
-from customenv1_g1.terrain.terrain_constants import custom_terrain_cfg
-
+from mjlab.tasks.registry import load_env_cfg
+from customenv1_g1.scene_objects.object_constants import (
+    get_brutalist_room_cfg,
+    get_decorative_sphere_cfg,
+)
 
 def customenv1_g1_env_cfg(play: bool = False):
-    cfg = unitree_g1_rough_env_cfg(play=play)
+    cfg = load_env_cfg("Mjlab-Tracking-Flat-Unitree-G1", play=play)
 
-    cfg.scene.terrain = custom_terrain_cfg(num_envs=cfg.scene.num_envs)
+    robot_cfg = cfg.scene.entities["robot"]
+    robot_cfg.init_state.pos = (0.0, 0.0, 0.0)
+    robot_cfg.init_state.lin_vel = (0.0, 0.0, 0.0)
+    robot_cfg.init_state.ang_vel = (0.0, 0.0, 0.0)
 
-    # Increase contact capacity for rough custom terrain
-    cfg.sim.nconmax = 200
-    cfg.sim.contact_sensor_maxmatch = 500
+    cfg.scene.entities["brutalist_room"] = get_brutalist_room_cfg(pos=(0.0, 0.0, 0.0))
+    cfg.scene.entities["_decorative_sphere"] = get_decorative_sphere_cfg(pos=(2.0, 5.0, 1.4))
 
+    # NOTE: THIS PATH WILL BE DIFFERENT FOR YOU, BECAUSE DEPENDS ON THE MIMIC TRAINING YOU DID IN PREV UNIT
+    cfg.commands["motion"].motion_file = "/home/user/__REMOTE_WORKSPACE__/policies_ws/mjlab_course_project/artifacts/fight1_subject3:v0/motion.npz"
+    
     if play:
         cfg.scene.num_envs = 1
-
-        if cfg.scene.terrain is not None and cfg.scene.terrain.terrain_generator is not None:
-            cfg.scene.terrain.terrain_generator.curriculum = False
-            cfg.scene.terrain.terrain_generator.num_rows = 3
-            cfg.scene.terrain.terrain_generator.num_cols = 3
-            cfg.scene.terrain.terrain_generator.border_width = 6.0
+        cfg.sim.nconmax = 200
 
     return cfg

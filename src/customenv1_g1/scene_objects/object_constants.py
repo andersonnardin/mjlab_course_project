@@ -162,3 +162,18 @@ def get_football_cfg(
     rot=(1.0, 0.0, 0.0, 0.0),
 ) -> EntityCfg:
     return make_free_cfg("football.xml", "football_body", pos, rot)
+
+
+def get_brutalist_room_cfg(
+    pos=(0.0, 0.0, 0.0),
+    rot=(1.0, 0.0, 0.0, 0.0),
+) -> EntityCfg:
+    return make_fixed_cfg("brutalist_room.xml", pos, rot)
+
+
+def get_decorative_sphere_cfg(
+    pos=(0.0, 0.0, 0.5),
+    rot=(1.0, 0.0, 0.0, 0.0),
+) -> EntityCfg:
+    return make_free_cfg("decorative_sphere.xml", "decorative_sphere_body", pos, rot)
+...
