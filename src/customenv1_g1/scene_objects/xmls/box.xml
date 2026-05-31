@@ -1,0 +1,13 @@
+<mujoco model="box_object">
+  <worldbody>
+    <body name="box_body" pos="0 0 0">
+      <geom
+        name="box_geom"
+        type="box"
+        size="0.5 0.5 0.5"
+        contype="1"
+        conaffinity="1"
+        rgba="0 1 0 1"/>
+    </body>
+  </worldbody>
+</mujoco>

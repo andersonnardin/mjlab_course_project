@@ -1,0 +1,9 @@
+<mujoco model="ellipsoid">
+  <worldbody>
+    <body pos="0 0 0">
+      <geom type="ellipsoid" size="0.5 0.3 0.8"
+            rgba="1 0.5 0 1"
+            contype="1" conaffinity="1"/>
+    </body>
+  </worldbody>
+</mujoco>

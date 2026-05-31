@@ -1,0 +1,47 @@
+<mujoco model="grass_field">
+  <asset>
+    <mesh
+      name="grass_field_visual_mesh"
+      file="assets/simple_field/field.obj"
+      scale="1 1 1"/>
+
+    <texture
+      name="grass_tex"
+      type="2d"
+      file="assets/simple_field/field.png"/>
+
+    <material
+      name="grass_mat"
+      texture="grass_tex"
+      texuniform="false"
+      reflectance="0.0"
+      shininess="0.0"
+      specular="0.0"/>
+  </asset>
+
+  <worldbody>
+    <body name="grass_field_body" pos="0 0 0">
+      <!-- Visual mesh -->
+      <geom
+        name="grass_field_visual_geom"
+        type="mesh"
+        mesh="grass_field_visual_mesh"
+        material="grass_mat"
+        quat="0.7071 0.7071 0 0"
+        contype="0"
+        conaffinity="0"
+        group="1"/>
+
+      <!-- Collision plane (RAISED 0.1m) -->
+      <geom
+        name="grass_field_collision_plane"
+        type="plane"
+        pos="0 0 0.1"
+        size="0 0 0.1"
+        contype="1"
+        conaffinity="1"
+        group="0"
+        rgba="0.3 0.8 0.3 0.0"/>
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,45 @@
+<mujoco model="ball_pit">
+  <worldbody>
+    <body name="ball_pit_body" pos="0 0 0">
+      <!-- Left wall -->
+      <geom
+        name="wall_left"
+        type="box"
+        pos="-1.55 0 0.25"
+        size="0.05 1.6 0.25"
+        contype="1"
+        conaffinity="1"
+        rgba="0.8 0.2 0.2 1"/>
+
+      <!-- Right wall -->
+      <geom
+        name="wall_right"
+        type="box"
+        pos="1.55 0 0.25"
+        size="0.05 1.6 0.25"
+        contype="1"
+        conaffinity="1"
+        rgba="0.2 0.8 0.2 1"/>
+
+      <!-- Bottom wall -->
+      <geom
+        name="wall_bottom"
+        type="box"
+        pos="0 -1.55 0.25"
+        size="1.5 0.05 0.25"
+        contype="1"
+        conaffinity="1"
+        rgba="0.2 0.2 0.8 1"/>
+
+      <!-- Top wall -->
+      <geom
+        name="wall_top"
+        type="box"
+        pos="0 1.55 0.25"
+        size="1.5 0.05 0.25"
+        contype="1"
+        conaffinity="1"
+        rgba="0.8 0.8 0.2 1"/>
+    </body>
+  </worldbody>
+</mujoco>
